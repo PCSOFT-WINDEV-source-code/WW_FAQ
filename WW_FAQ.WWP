@@ -1,0 +1,185 @@
+#To edit and compare internal_properties, use WINDEV integrated tools.
+#Internal properties refer to the properties of controls in windows, reports, etc.
+info :
+ name : WW_FAQ
+ major_version : 28
+ minor_version : 0
+ type : 4097
+ description : FAQ about PC SOFT products
+ subtype : 0
+project :
+ identifier : 0x0
+ internal_properties : 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
+ configurations :
+  -
+    name : WW_FAQ_AWP
+    internal_properties : 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
+    configuration_id : 11505616695236110876
+    type : 2
+    generation_name : WW_FAQ.wdl
+    version :
+     version : 1.00Bz
+    index_page_generation_name : search
+    language : 2
+    64bits : true
+ elements :
+  identifier : 0x4c207bb4000bae59
+  elements :
+   -
+     name : PAGETPL_FAQ
+     identifier : 0x4c208f0a001f34f7
+     internal_properties : CAAAAAgAAAAnIw8TkM1lBi8v3ngWe5h+fWpwUH8PY0+KvEcNh5UB/8kL0XHWarfQbKgS7rYq1soyMg==
+     physical_name : .\PAGETPL_FAQ.wwt
+     type : 65541
+   -
+     name : tracker
+     identifier : 0x4c3b42d5018f99b9
+     internal_properties : CAAAAAgAAAAHA2+zcC2Fpo/Pfpj2X6gWXSqggCNtXP2KroXTV9k9swXf3VX2CldwzEiyDpZKNqoSEg==
+     physical_name : .\tracker.wwn
+     type : 65539
+   -
+     name : editProduct
+     identifier : 0x4c2374c1004b0a45
+     internal_properties : CAAAAAgAAACmrI6SEU7miaygX/mXwx/5yFXX/1J1/TKyMmLKa7FjXat3S/dV6zZR7SmTbTWrV0mzsw==
+     physical_name : .\editProduct.wwh
+     type : 65538
+   -
+     name : read
+     identifier : 0x4c21c9a6001ff501
+     internal_properties : CAAAAAgAAAA0EhwYp5yUl76OOSe9G2GnhufdBSRtJrCKGF1su1FDzSeffzMv0RCrCzehH+cZ4dchIQ==
+     physical_name : .\read.wwh
+     type : 65538
+   -
+     name : edit
+     identifier : 0x4c231c620010d875
+     internal_properties : CAAAAAgAAAC0kpyYJxwUFz4Ouac9ntE/goGJUW45ua125ad1DDBkpGSuDLavUZAri7chn2eZYVehoQ==
+     physical_name : .\edit.wwh
+     type : 65538
+   -
+     name : pTools
+     identifier : 0x4c20ec640012b0bf
+     internal_properties : CAAAAAgAAAAlIQ0RrstjfMEFQM6Ux3psI5yOrhm5xq9CTi+FCwEdi2lHuQlY6ClCko4I8LAg2MgwMA==
+     physical_name : .\pTools.wdg
+     type : 7
+   -
+     name : search
+     identifier : 0x4c20a1ab000ccea5
+     internal_properties : CAAAAAgAAACD//svnMlhetMTkrzaD1waIQ70FKOzTmOu04gZa9FN69U//UUSNnsUoJwG8rIuyj6Gjg==
+     physical_name : .\search.wwh
+     type : 65538
+   -
+     name : pRights
+     identifier : 0x42d93d1f003f342e
+     internal_properties : CAAAAAgAAAB51aHlwr/3+F2UeAIYyqbuFWLIeEtFZLXqdh27/wGVC/3XdU/t04y5HhqEfAT8hHRc5A==
+     physical_name : .\pRights.wdg
+     type : 7
+   -
+     name : qryFAQFind__All
+     identifier : 0x4c20d47b000f4a3e
+     internal_properties : CAAAAAgAAACKgPKWFVLahVhsGwVThce5BBVj+0awSKSK3AAL1cPJD/ExicmZr/KNKRWPaSmnU0WPlw==
+     physical_name : .\qryFAQFind__All.WDR
+     type : 5
+  other_elements : []
+  analysis : .\WW_FAQ.ana\WW_FAQ.wda
+  net_assemblies : []
+  uwp_api : []
+  external_components : []
+  internal_components : []
+ common_generation_directory : true
+ wb_skin : 210 Material Design
+ wb_color_palette : Material Blue Grey
+ site_type : 3
+ languages :
+  - en-GB
+ wd_style_sheet : .\WW_FAQ_AWP.sty
+ wb_style_sheet : .\WW_FAQ_AWP.wws
+ site_map :
+  roots : []
+  orphans :
+   -
+     name : edit
+     parameters : []
+     title :
+      fr-FR : edit
+      en-GB : edit
+     description :
+      fr-FR : edit
+      en-GB : edit
+   -
+     name : editProduct
+     parameters : []
+     title :
+      fr-FR : editProduit
+      en-GB : editProduct
+     description :
+      fr-FR : editProduit
+      en-GB : editProduct
+   -
+     name : read
+     parameters : []
+     title :
+      fr-FR : read
+      en-GB : read
+     description :
+      fr-FR : read
+      en-GB : read
+   -
+     name : search
+     parameters : []
+     title :
+      fr-FR : search
+      en-GB : search
+     description :
+      fr-FR : search
+      en-GB : search
+ url_rewriting :
+  internal_properties : CAAAAAgAAADkPzcUdUUS7wCiun+MCjqYH70RJdzkSv/nRvXZ3ENdikMa6bcHtsAH
+ code_elements :
+  internal_properties : CAAAAAgAAAAtE1+hLi8H8snDKd3bPpzwqy2LWnAKRQmQXs9Yngzd8tAqtcKaUQqBe9BhPPoH2TC1nSwnBa7Aa7OSI1nS2R54kH1PNFtErx7jBTYQ5Ur9pmou7Dv7Xao=
+  type_code : 0
+  p_codes :
+   -
+     code : |1+
+      
+      // ID of product currently sought
+      gnProductID				is int
+      // Previous page
+      gsPreviousPage 		is string = ""
+      // Number of messages displayed
+      gnNbLinesPerPage 		is int 
+      
+      // Configure the AWP context. Store the session information on a cookie
+      ConfigureAWPContext(ctxDisk)
+      
+      // Add the global variables into the context
+      DeclareAWPContext(gnNbLinesPerPage,gsPreviousPage)
+     type : 196608
+   -
+     code : |1-
+      
+     type : 196610
+   -
+     type : 196621
+   -
+     type : 196627
+     enabled : false
+  orphans :
+   -
+     name : WW_FAQ_AWP
+     identifier : 0x4c207bb4000caeb7
+     code_elements :
+      type_code : 159
+      p_codes : []
+ code_parameters :
+  internal_properties : CAAAAAgAAACVGQgYbalU7DKC3oH4ItDrjtcTHXXV/EuH8q0IbhyQlw==
+  original_name : WW_FAQ_AWP
+rad :
+ internal_properties : CAAAAAgAAABhIL0UXeZmxDJxY3Xy0Q==
+project_explorer :
+ explorer_type : project
+resources :
+ string_res :
+  identifier : 0x0
+  internal_properties : CAAAAAgAAACm76HWfKGWp33VjXInA4cRlqArlgTTA862QGt72W2ld5Y=
+custom_note :
+ internal_properties : CAAAAAgAAAAd98VSJfHHqE3P0QHwrwdhn7ig8dWBR6valpUTgnAMTVXiDg==

@@ -1,0 +1,246 @@
+#To edit and compare internal_properties, use WINDEV integrated tools.
+#Internal properties refer to the properties of controls in windows, reports, etc.
+info :
+ name : pTools
+ major_version : 28
+ minor_version : 0
+ type : 7
+ description : ""
+ subtype : 0
+procedure_set :
+ identifier : 0x18de13f101d6932b
+ internal_properties : CAAAAAgAAABGLu41kG7fjQV3iS4F72qmnKaNh5694reolNKIW0iw
+ code_elements :
+  internal_properties : CAAAAAgAAACad/Tknar+VszCbzpkN17TM4vwd3Ph+FNGGe7L1R8UbBzKGejp00g4kCPeg84j+s04YY/pp0wvODlOJBjC4hYrU0KvoxVzs3I=
+  type_code : 31
+  p_codes : []
+  procedures :
+   -
+     name : ReturnPreviousPage
+     procedure_id : 1791891627578987307
+     type_code : 15
+     code : |1+
+      // Summary: Returns the address of the previous page
+      // Syntax:
+      //[ <Result> = ] ReturnPreviousPage ()
+      //
+      // Parameters:
+      //	None
+      // Return value:
+      // 	string: address of the previous page
+      //
+      
+      PROCEDURE ReturnPreviousPage()
+      sValue is string
+      
+      // Extracts the environment variable
+      sValue = SysEnvironment("HTTP_REFER")
+      
+      // Extracts the value 
+      sValue = sValue[[Position(sValue, "=") + 1 TO]]
+      
+      RESULT sValue
+      
+     type : 458752
+   -
+     name : TransformResponse
+     internal_properties : CAAAAAgAAACJIOznzlIJFQBzeRzyJvBhQUoAUE+VRDVL8iIEt/GrAgoSApSIEdbY3g7o7o7pebCgXRHxL3RYffp0f42x9FjoBxwM0J3nrUDe31WXUGF7MntkR1KfEpXBwzpe9XBk4uKC65Uk+kf3aTwYnqiCTG5y5MHf9vXTy/JZyVMNFbCm13XRDx6sTGULo/ZmXFYx54qMAgw+cM1sHuVzaiAv5w/JRGe5S/sClCh9HBaznnMrHyW5OOfVKLVS+5Aqdg9KeQiFJ+KqQmSASp2qtnDEJoEqg8VkAEWEJhP2xt5zSKDK2VzY
+     procedure_id : 1791891627579052843
+     type_code : 15
+     code : |1-
+      
+      // Transforms the response
+      PROCEDURE TransformResponse(sMessageText, bEdit is boolean = False)
+      
+      sResponseCap is string = sMessageText
+      sResponseCap = Replace(Replace(sResponseCap, "<code>", "#{code}#"), "</code>", "#{/code}#")
+      sResponseCap = Replace(sResponseCap, "<tab>", "#{arr}#")
+      sResponseCap = Replace(Replace(sResponseCap, "<func>", "#{func}#"), "</func>", "#{/func}#")
+      //sResponseCap = replace(replace(sResponseCap, "<", "#{code}#&lt;"), ">", "&gt;#{/code}#")
+      sResponseCap = Replace(Replace(sResponseCap, "#{", "<"), "}#", ">")
+      
+      IF NOT bEdit THEN
+      	// Replaces the URLs
+      	sResponseCap = ReplaceURL(sResponseCap, "http")
+      	sResponseCap = ReplaceURL(sResponseCap, "ftp")
+      	sResponseCap = ReplaceURL(sResponseCap, "news")
+      END
+      	
+      // Replaces the templates of functions
+      sResponseCap = Replace(sResponseCap, "<func>", "<code><font color=""0000ff"" font-size=9 pt;>")
+      sResponseCap = Replace(sResponseCap, "</func>", "</font></code>")
+      sResponseCap = Replace(sResponseCap, "<tab>", "&nbsp;&nbsp;")
+      
+      // Displays the response
+      sResponseCap = Replace(sResponseCap, CR, "<br>")
+      
+      RESULT sResponseCap
+     type : 458752
+   -
+     name : ReplaceURL
+     internal_properties : CAAAAAgAAAB0zOml3dtVfYL9IhyB9o0qJzLxb235YA0sHPD0H59Gj/6WBt6dzjzQdvQVkiKvswmAkQ/aZdlJTMNmomQ87iKkF2N4NZQ9WaUE4/VJJ5/HLwB7DDAcF9jnp8Rf56xVgeRuRe5uw9bG8SEcR9hZ2yhRbNpQiTdoL9SJdkU92kLuJ/I8/m4PXIHsmjd5T8Kudw8Prk/GZXFjm161e6c0R+t/1R5OgpIP
+     procedure_id : 1791891627579118379
+     type_code : 15
+     code : |1-
+      PROCEDURE ReplaceURL(sText, sProtocol)
+      
+      sResponseCap	is string = sText
+      sURL		is string
+      sAHREF		is string
+      
+      nPosHTTP is int
+      nEndHTTP_SPC is int
+      nEndHTTP_CR is int
+      nEndHTTP_34 is int
+      nEndHTTP_F is int
+      nEndHTTP_O is int
+      nEndHTTP_A is int
+      nEndHTTP is int
+      
+      // Retrieves the position of the first occurrence of an URL with the specified protocol
+      nPosHTTP = Position(sResponseCap, sProtocol + "://")
+      WHILE nPosHTTP <> 0		
+      	
+      	
+      	// Searches for the first possible end delimiter
+      	
+      	nEndHTTP_SPC = Position(sResponseCap, " ", nPosHTTP)
+      	nEndHTTP_CR  = Position(sResponseCap, CR, nPosHTTP)
+      	nEndHTTP_34  = Position(sResponseCap, """", nPosHTTP)
+      	nEndHTTP_F   = Position(sResponseCap, ")", nPosHTTP)
+      	nEndHTTP_O   = Position(sResponseCap, "(", nPosHTTP)
+      	nEndHTTP_A   = Position(sResponseCap, "<", nPosHTTP)
+      	
+      	IF nEndHTTP_O = 0 THEN nEndHTTP_O = 999999
+      	IF nEndHTTP_F = 0 THEN nEndHTTP_F = 999999
+      	IF nEndHTTP_34 = 0 THEN nEndHTTP_34 = 999999
+      	IF nEndHTTP_CR = 0 THEN nEndHTTP_CR = 999999
+      	IF nEndHTTP_SPC = 0 THEN nEndHTTP_SPC = 999999
+      	IF nEndHTTP_A = 0 THEN nEndHTTP_A = 999999
+      	
+      	nEndHTTP = Min(...
+      	nEndHTTP_O , ...
+      	nEndHTTP_F , ...
+      	nEndHTTP_34, ...
+      	nEndHTTP_CR , ...
+      	nEndHTTP_A, ...
+      	nEndHTTP_SPC  ...
+      	)
+      	
+      	// If there is an end to the URL, transform it
+      	IF nEndHTTP <> 0 AND nEndHTTP <> 999999 THEN
+      		
+      		nPosLT is int = Position(sResponseCap, "<a", nPosHTTP, FromEnd)
+      		IF nPosLT =0 THEN
+      			nPosLT = Position(sResponseCap, "<", nPosHTTP, FromEnd)
+      		END
+      		
+      		// Checks whether the URL is not enclosed in brackets
+      		IF nPosLT < nPosHTTP AND Position(sResponseCap, ">", nPosLT + 1) > nEndHTTP THEN
+      		ELSE
+      			sl is  string = sResponseCap[[nPosHTTP-1]]
+      			sSl2 is  string = sResponseCap[[nEndHTTP]]
+      			
+      			IF sResponseCap[[nPosHTTP-1]] <> """" _OR_ sResponseCap[[nEndHTTP]] <> """" THEN
+      				// Retrieves the URL
+      				sURL = sResponseCap[[nPosHTTP TO nEndHTTP - 1]]
+      				// Generates the link
+      				sAHREF = "<a title=""" + StringBuild(<§@1c20ec5300716ff80000§>, sURL) + """ target=""_blank"" href=""" + sURL + """>" + sURL + "</a>"
+      				// Replaces the URL by the generated link
+      				sResponseCap[[nPosHTTP TO nEndHTTP - 1]] = sAHREF
+      			END
+      		END	
+      	END
+      	
+      	// Searches for the next occurrence
+      	nPosHTTP = Position(sResponseCap, sProtocol + "://", nPosHTTP + Length(sAHREF) + 1)
+      END
+      
+      RESULT sResponseCap
+     type : 458752
+   -
+     name : ConvertStringForURL
+     internal_properties : CAAAAAgAAAA0jKnlmmuM/dKtEowRRn06F0IhPxICcMVo+OwUVwNuo9Lq5s4dsgD4avixUkpzWz285TfqDf3VPFfqFvzswvIYG69IjZRZZd3IB2nhvzvvW6RvVAIyJbbVrcJt7coLbw4s64zoWbxE/wcKJQYPCX4r0rC2G+V+ZQrH9PM7OBiUQaByJFhlsr+acB2vrYjslYWmLk/mBfEDOz7Ve0c0Z9tmpF4OQtLP
+     procedure_id : 1791891627579183915
+     type_code : 15
+     code : |1+
+      // Summary: Converts a list of keywords so that they can be added into a URL
+      // Syntax:
+      //[ <Result> = ] ConvertStringForURL (<sString> is string)
+      //
+      // Parameters:
+      //	sString (string): string to convert
+      // Return value:
+      // 	string: converted string
+      //
+      PROCEDURE ConvertStringForURL(sString is string)
+      // Variables
+      sRoughString 	is string
+      sReturnString	is string =""
+      tKeywords		is array of string
+      
+      //See http://www.ietf.org/rfc/rfc1738.txt ouhttp://www.ietf.org/rfc/rfc3986.txt for the syntax of URLs
+      sRoughString = NoAccent(sString)
+      sRoughString = Lower(sRoughString)
+      
+      sRoughString = Replace(sRoughString,"-","")
+      sRoughString = Replace(sRoughString,"/","")
+      sRoughString = Replace(sRoughString,"#","")
+      sRoughString = Replace(sRoughString,".","")
+      sRoughString = Replace(sRoughString,":","")
+      sRoughString = Replace(sRoughString,"?","")
+      sRoughString = Replace(sRoughString,"&","")
+      sRoughString = Replace(sRoughString,"=","")
+      sRoughString = Replace(sRoughString,"""","")
+      sRoughString = Replace(sRoughString,"<","")
+      sRoughString = Replace(sRoughString,">","")
+      sRoughString = Replace(sRoughString,"{","")
+      sRoughString = Replace(sRoughString,"}","")
+      sRoughString = Replace(sRoughString,"|","")
+      sRoughString = Replace(sRoughString,"\","")
+      sRoughString = Replace(sRoughString,"^","")
+      sRoughString = Replace(sRoughString,"~","")
+      sRoughString = Replace(sRoughString,"[","")
+      sRoughString = Replace(sRoughString,"]","")
+      sRoughString = Replace(sRoughString,"`","")
+      sRoughString = Replace(sRoughString,"%","")
+      
+      StringToArray(sRoughString,tKeywords,",")
+      
+      FOR  EACH sKeyword of tKeywords
+      	IF sKeyword <> "" THEN
+      		IF Length(sReturnString) <= 50 THEN
+      			IF sReturnString = "" THEN
+      				sReturnString += sKeyword
+      			ELSE
+      				sReturnString += "_" + sKeyword
+      			END
+      		END
+      	END
+      END
+      
+      
+      IF sReturnString = "" THEN
+      	RESULT "faq"
+      END
+      
+      RESULT sReturnString
+      
+      
+     type : 458752
+  procedure_templates : []
+  property_templates : []
+ code_parameters :
+  internal_properties : CAAAAAgAAACVGQgYbalU7DKC3oH4ItDrjtcTHXXV/EuH8q0IbhyQlw==
+  original_name : COL_ProcéduresGlobales1
+resources :
+ string_res :
+  identifier : 0x1c20ec5300716ff8
+  internal_properties : CAAAAAgAAACm76HWfKGWp33VjXInA4cRlqArlgTTA862QGt72W2ld5Y=
+  strings :
+   -
+     text :
+      en-GB : "External document: %1"
+     index : 0
+custom_note :
+ internal_properties : CAAAAAgAAABtB9HWVzrXO2+4NDRVK0vmzaNKrCKqH1DBX30lMmGZ

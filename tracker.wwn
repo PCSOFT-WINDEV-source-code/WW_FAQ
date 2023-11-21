@@ -1,0 +1,50 @@
+#To edit and compare internal_properties, use WINDEV integrated tools.
+#Internal properties refer to the properties of controls in windows, reports, etc.
+info :
+ name : tracker
+ major_version : 28
+ minor_version : 0
+ type : 65539
+ description : ""
+ subtype : 0
+procedure_set :
+ identifier : 0x1c3b42cd01807c69
+ internal_properties : CAAAAAgAAABGLu41kG7fjQV3iS4F72qmnKaNh5694reolNKIW0iw
+ code_elements :
+  type_code : 41
+  p_codes :
+   -
+     type : 983040
+     role : N
+   -
+     type : 983042
+     role : N
+  procedures :
+   -
+     name : GetTracker
+     internal_properties : CAAAAAgAAABFF1WiU+8bPdlIX97rJJjWFuHpGzNcdmnMpbidhbDspibz6gqUC9tdQ9+Ex99YD+owjBOoQ4jPg23ibDV1rIicVDE/RomP6SPkL2+SNJVGeLN7Q4kXqV/yBKlr7DjAkNFe1JW6xbct7QTokLOurTkcrOEGP96t6sj7ONH6
+     procedure_id : 2034293195143237262
+     type_code : 15
+     code : |1+
+      
+      function GetTracker(tag) {
+      	try {
+      	Takwimu.EnableSite(tag);
+      	return Takwimu;
+      	} catch (err) {}
+      	return null;
+      }
+     language : JS
+     type : 458752
+     role : N
+  procedure_templates : []
+  property_templates : []
+ code_parameters :
+  internal_properties : CAAAAAgAAACVGQgYbalU7DKC3oH4ItDrjtcTHXXV/EuH8q0IbhyQlw==
+  original_name : NAV_ProcéduresNavigateur1
+resources :
+ string_res :
+  identifier : 0x1006986918898598
+  internal_properties : CAAAAAgAAACm76HWfKGWp33VjXInA4cRlqArlgTTA862QGt72W2ld5Y=
+custom_note :
+ internal_properties : CAAAAAgAAABtB9HWVzrXO2+4NDRVK0vmzaNKrCKqH1DBX30lMmGZ
